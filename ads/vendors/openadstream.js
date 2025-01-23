@@ -5,15 +5,14 @@ import {validateData, writeScript} from '#3p/3p';
  * @param {!Object} data
  */
 export function openadstream(global, data) {
-  validateData(data, ['adhost', 'sitepage', 'pos'], ['query']);
+  validateData(data, ['adhost', 'adtag', 'sitepage', 'pos'], ['query']);
 
   let url =
     'https://' +
     encodeURIComponent(data.adhost) +
-    '/3/' +
+    '/RealMedia/ads/' +
+    data.adtag +
     data.sitepage +
-    '/1' +
-    String(Math.random()).substring(2, 11) +
     '@' +
     data.pos;
 
